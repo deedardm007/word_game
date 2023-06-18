@@ -1,0 +1,30 @@
+import  random
+print("you have only four chances to play the game: ")
+word_tuple=["pycharm","Programming","coding","laptop","error"]
+i=1
+score=0
+while i<4:
+    word = random.choice(word_tuple)
+    word = word.upper()
+    useword = set()
+
+    if word in useword:
+        continue
+    useword.add(word)
+    computer=word
+    word="|".join(random.sample(word,len(word)))
+    print(f"ROUND - {i}")
+    print(word)
+    guess=input("Guess the word: ")
+    if guess.upper()==computer:
+        score=score+5
+        print("You guess the correct")
+
+    else:
+        score=score-5
+        print("You did not get the correct word the correct word is ",computer)
+    i=i+1
+if score>10:
+    print(f"Congrats you got {score}")
+else:
+    print(f"better luck next time. your final score is|  {score}")
